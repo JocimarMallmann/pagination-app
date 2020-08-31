@@ -1,0 +1,23 @@
+<div class="scrollable">
+  <table class="table table-dark table-striped">
+    <thead >
+      <tr class="thead-light">
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index;">
+        <td>{{ product.id}}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price | currency: "BRL": true }}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<pagination [headerSubject]="headersUseDebounce" (paginationEvent)=changePage($event)></pagination>
